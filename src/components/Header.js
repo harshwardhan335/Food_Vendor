@@ -5,7 +5,7 @@ import useOnline from "../utils/useOnline";
 import Instamart from "./Instamart";
 const Title= ()=> (
     <a href="/">
-        <img className="logo" src={Logo} alt="logo"/>
+        <img className="h-28 p-2" src={Logo} alt="logo"/>
     </a>
     );
     
@@ -16,22 +16,22 @@ const Title= ()=> (
         const [isLoggedIn, setIsLoggedIn] = useState(true);
         const isOnline = useOnline();
         return (
-            <div className="header">
+            <div className="flex justify-between bg-pink-50 shadow-lg">
                 <Title/>
             <div className="nav-items">
-                <ul>
+                <ul className="flex py-10">
                     <Link to="/">
-                        <li>Home</li>
+                        <li className="px-2">Home</li>
                         </Link>
                     <Link to="/about">
-                        <li>About</li>
+                        <li className="px-2">About</li>
                         </Link>
                         <Link to="/contact">
-                        <li>Contact</li>
+                        <li className="px-2">Contact</li>
                         </Link>
                     <li>Cart</li>
                     <Link to="/instamart">
-                        <li>Instamart</li>
+                        <li className="px-2">Instamart</li>
                     </Link>
                 </ul>
             </div>
