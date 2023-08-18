@@ -3,6 +3,7 @@ import Logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import Instamart from "./Instamart";
+import { useSelector } from "react-redux";
 const Title= ()=> (
     <a href="/">
         <img className="h-28 p-2" src={Logo} alt="logo"/>
@@ -15,6 +16,7 @@ const Title= ()=> (
     const Header=()=> {
         const [isLoggedIn, setIsLoggedIn] = useState(true);
         const isOnline = useOnline();
+        const cartItems = useSelector(store => store.cart.items);
         return (
             <div className="flex justify-between bg-pink-50 shadow-lg">
                 <Title/>
@@ -29,9 +31,11 @@ const Title= ()=> (
                         <Link to="/contact">
                         <li className="px-2">Contact</li>
                         </Link>
-                    <li>Cart</li>
-                    <Link to="/instamart">
+                        <Link to="/instamart">
                         <li className="px-2">Instamart</li>
+                    </Link>
+                    <Link to="/cart">
+                    <li className="px-2">Cart- {cartItems.length} items</li>
                     </Link>
                 </ul>
             </div>
