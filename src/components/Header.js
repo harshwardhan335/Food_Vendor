@@ -9,7 +9,7 @@ const Title= ()=> (
         <img className="h-28 p-2" src={Logo} alt="logo"/>
     </a>
     );
-    
+     
     
     
     //composing component
