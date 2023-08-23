@@ -1,53 +1,64 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import Instamart from "./Instamart";
 import { useSelector } from "react-redux";
-const Title= ()=> (
-    <a href="/">
-        <img data-testid="logo" className="h-28 p-2" src={Logo} alt="logo"/>
-    </a>
-    );
+import UserContext from "../utils/UserContext";
      
     
     
     //composing component
     const Header=()=> {
+        const [btnNameReact, setBtnNameReact] = useState("Login");
         const [isLoggedIn, setIsLoggedIn] = useState(true);
         const isOnline = useOnline();
+        const { loggedInUser } = useContext(UserContext);
+
+        // Subscribing to the store using a Selector
         const cartItems = useSelector(store => store.cart.items);
+
         return (
-            <div className="flex justify-between bg-pink-50 shadow-lg">
-                <Title/>
-            <div className="nav-items">
-                <ul className="flex py-10">
-                    <Link to="/">
-                        <li className="px-2">Home</li>
-                        </Link>
-                    <Link to="/about">
-                        <li className="px-2">About</li>
-                        </Link>
-                        <Link to="/contact">
-                        <li className="px-2">Contact</li>
-                        </Link>
-                        <Link to="/instamart">
-                        <li className="px-2">Instamart</li>
-                    </Link>
-                    <Link to="/cart">
-                    <li className="px-2" data-testid="cart">Cart- {cartItems.length} items</li>
-                    </Link>
-                </ul>
-            </div>
-            <div>
-                <h1 data-testid="online-status">{isOnline ? "🟢" : "🔴"}</h1>
-                {isLoggedIn ? (
-                    <button onClick={()=> setIsLoggedIn(false)}>Logout</button>
-                    ) : (
-                    <button onClick={()=> setIsLoggedIn(true)}>Login</button>
-                )}
-            </div>
-            </div>
-        );
-    };
+            <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50">
+      <div className="logo-container">
+      <Link to="/">
+      <img className="h-28 p-2" src={Logo} />
+      </Link>
+        
+      </div>
+      <div className="flex items-center">
+        <ul className="flex p-4 m-4">
+          <li className="px-4">Online Status: {isOnline ? "✅" : "🔴"}</li>
+          <li className="px-4">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/about">About Us</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/contact">Contact Us</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/grocery">Grocery</Link>
+          </li>
+          <li className="px-4">
+            <Link to="/cart">Cart - {cartItems.length} items</Link>
+          </li>
+          <button
+            className="login"
+            onClick={() => {
+              btnNameReact === "Login"
+                ? setBtnNameReact("Logout")
+                : setBtnNameReact("Login");
+            }}
+          >
+            {btnNameReact}
+          </button>
+
+          <li className="px-4 ">{loggedInUser}</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
     export default Header;

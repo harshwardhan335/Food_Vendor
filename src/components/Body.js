@@ -39,12 +39,12 @@ import useOnline from "../utils/useOnline";
         <Shimmer/>
     ) : (
         <>
-        <div className="search-container p-5 bg-pink-50 my-5">
+        <div className="p-5 bg-pink-50 my-5">
             <input
             data-testid="search-input"
             type="text"
-            className="search-input"
-            placeholder="Search"
+            className="border border-solid border-black"
+            placeholder="Search input"
             value={searchText}
             onChange={(e)=> {
             setSearchText(e.target.value);
@@ -52,7 +52,7 @@ import useOnline from "../utils/useOnline";
             />
             <button
             data-testid="search-btn"
-            className="search-btn p-2 m-2 bg-purple-900 hover:bg-violet-600 text-white rounded-md"
+            className="p-2 m-2  bg-purple-900 hover:bg-violet-600 text-white rounded-md"
             onClick={() => {
                 // need to filter the data
                 const data = filterData(searchText, allRestaurants);
@@ -63,7 +63,7 @@ import useOnline from "../utils/useOnline";
                 Search
                 </button>
         </div>
-        <div className="flex flex-wrap" data-testid="res-list">
+        <div className="pl-12 flex flex-wrap items-center" data-testid="res-list">
     {filteredRestaurants.map((restaurant) => {
         return (
             <Link

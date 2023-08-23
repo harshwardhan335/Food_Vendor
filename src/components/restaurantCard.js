@@ -1,17 +1,27 @@
 import { IMG_CDN_URL } from "../constants";
 
 const RestrauntCard = ({
-  name,
-  cuisines,
   cloudinaryImageId,
-  lastMileTravelString,
+    name,
+    avgRating,
+    cuisines,
+    costForTwo,
+    deliveryTime,
 }) => {
   return (
-    <div className="w-56 p-2 m-2 shadow-lg bg-pink-50">
-      <img src={IMG_CDN_URL + cloudinaryImageId} />
-      <h2 className="font-bold text-xl">{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{lastMileTravelString} minutes</h4>
+    <div
+      className="m-4 p-4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-200"
+    >
+      <img
+        className="rounded-lg"
+        alt="res-logo"
+        src={IMG_CDN_URL + cloudinaryImageId}
+      />
+      <h3 className="font-bold py-4 text-lg">{name}</h3>
+      <h4>{cuisines.join(", ")}</h4>
+      <h4>{avgRating} stars</h4>
+      <h4>₹{costForTwo / 100} FOR TWO</h4>
+      <h4>{deliveryTime} minutes</h4>
     </div>
   );
 };
