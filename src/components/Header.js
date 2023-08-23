@@ -6,7 +6,7 @@ import Instamart from "./Instamart";
 import { useSelector } from "react-redux";
 const Title= ()=> (
     <a href="/">
-        <img className="h-28 p-2" src={Logo} alt="logo"/>
+        <img data-testid="logo" className="h-28 p-2" src={Logo} alt="logo"/>
     </a>
     );
      
@@ -35,12 +35,12 @@ const Title= ()=> (
                         <li className="px-2">Instamart</li>
                     </Link>
                     <Link to="/cart">
-                    <li className="px-2">Cart- {cartItems.length} items</li>
+                    <li className="px-2" data-testid="cart">Cart- {cartItems.length} items</li>
                     </Link>
                 </ul>
             </div>
             <div>
-                <h1>{isOnline ? "🟢" : "🔴"}</h1>
+                <h1 data-testid="online-status">{isOnline ? "🟢" : "🔴"}</h1>
                 {isLoggedIn ? (
                     <button onClick={()=> setIsLoggedIn(false)}>Logout</button>
                     ) : (

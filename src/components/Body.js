@@ -41,6 +41,7 @@ import useOnline from "../utils/useOnline";
         <>
         <div className="search-container p-5 bg-pink-50 my-5">
             <input
+            data-testid="search-input"
             type="text"
             className="search-input"
             placeholder="Search"
@@ -50,6 +51,7 @@ import useOnline from "../utils/useOnline";
             }}
             />
             <button
+            data-testid="search-btn"
             className="search-btn p-2 m-2 bg-purple-900 hover:bg-violet-600 text-white rounded-md"
             onClick={() => {
                 // need to filter the data
@@ -61,7 +63,7 @@ import useOnline from "../utils/useOnline";
                 Search
                 </button>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap" data-testid="res-list">
     {filteredRestaurants.map((restaurant) => {
         return (
             <Link
