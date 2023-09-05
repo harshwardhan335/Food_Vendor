@@ -1,10 +1,10 @@
 import { restaurantList } from "../constants";
 import RestaurantCard from "./restaurantCard";
 import { useState, useEffect } from "react";
-import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import { ShimmerPostList } from "react-shimmer-effects-18";
 
 
   const Body = () => {
@@ -35,8 +35,10 @@ import useOnline from "../utils/useOnline";
     //if(filteredRestaurants?.length === 0)
    // return <h1>No restaurant match your filter</h1>
 
-    return allRestaurants?.length===0 ? (
-        <Shimmer/>
+    return allRestaurants.length === 0 ? (
+      <div className="mx-auto m-5" style={{ width: "78.125rem" }}>
+        <ShimmerPostList postStyle="STYLE_FOUR" col={4} row={2} gap={30} />
+      </div>
     ) : (
         <>
         <div className="p-5 bg-pink-50 my-5">
