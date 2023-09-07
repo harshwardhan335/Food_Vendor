@@ -18,15 +18,20 @@ import { ShimmerPostList } from "react-shimmer-effects-18";
     }, []);
 
     async function getRestaurants() {
+      try {
         const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940947&lng=85.1375645&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+            "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.5940947&lng=85.1375645&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
             );
         const json = await data.json();
         console.log(json);
         // optional chaining
         setAllRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      } catch (err) {
+        console.log(err);
+      }
     }
+
     const isOnline = useOnline();
     if (!isOnline) {
       return <h1>Offline! Plese check your internet connection</h1>

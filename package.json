@@ -4,6 +4,7 @@
   "description": "This is a live course",
   "scripts": {
     "start": "parcel index.html",
+    "build": "react-scripts build",
     "test": "jest",
     "watch-test": "jest --watch"
   },
@@ -30,6 +31,7 @@
     "react-icons": "^4.10.1",
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.14.2",
+    "react-scripts": "^5.0.1",
     "react-shimmer-effects-18": "^1.0.4"
   }
 }
