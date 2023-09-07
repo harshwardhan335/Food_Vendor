@@ -10,7 +10,7 @@ const RestrauntCard = ({
 }) => {
   const rateColor = avgRating >= 4 ? "bg-green-500" : "bg-orange-500";
   return (
-    <div className=" border-[1.5px] border-transparent hover:border-solid hover:border-black/10 hover:shadow-lg p-4 cursor-pointer">
+    <div className=" pr-2 border-[1.5px] border-transparent hover:border-solid hover:border-black/10 hover:shadow-lg p-4 cursor-pointer">
       <div className="w-[16.2rem] min-h-[18rem] flex flex-col justify-start items-start gap-3 ">
         <img className="w-full" src={IMG_CDN_URL + cloudinaryImageId} />
         <div className="flex flex-col justify-between items-start gap-1">

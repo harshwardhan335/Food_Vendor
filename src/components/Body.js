@@ -11,6 +11,7 @@ import { ShimmerPostList } from "react-shimmer-effects-18";
     const [allRestaurants, setAllRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [checked, setChecked] = useState(false);
   
     useEffect(() => {
       getRestaurants();
@@ -41,11 +42,12 @@ import { ShimmerPostList } from "react-shimmer-effects-18";
       </div>
     ) : (
         <>
+        <div>
         <div className="p-5 bg-pink-50 my-5">
             <input
             data-testid="search-input"
             type="text"
-            className="border border-solid border-black"
+            className="border h-10 rounded-md p-2 ml-11 border-solid border-black"
             placeholder="Search input"
             value={searchText}
             onChange={(e)=> {
@@ -64,6 +66,19 @@ import { ShimmerPostList } from "react-shimmer-effects-18";
             >
                 Search
                 </button>
+                <button
+              className="p-2 m-2  bg-purple-900 hover:bg-violet-600 text-white rounded-md"
+              onClick={() => {
+                // filter logic here
+                const filterdList = allRestaurants.filter(
+                  (res) => res.info.avgRating > 4
+                );
+                setFilteredRestaurants(filterdList);
+              }}
+            >
+              Top Rated restaurant
+            </button>
+        </div>
         </div>
         <div className="pl-12 flex flex-wrap items-center" data-testid="res-list">
     {filteredRestaurants.map((restaurant) => {

@@ -22,7 +22,7 @@ import UserContext from "../utils/UserContext";
             <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50">
       <div className="logo-container">
       <Link to="/">
-      <img className="h-28 p-2" src={Logo} />
+      <img className="h-28 p-2 rounded-3xl" src={Logo} />
       </Link>
         
       </div>
@@ -45,7 +45,6 @@ import UserContext from "../utils/UserContext";
             <Link to="/cart">Cart - {cartItems.length} items</Link>
           </li>
           <button
-            className="login"
             onClick={() => {
               btnNameReact === "Login"
                 ? setBtnNameReact("Logout")

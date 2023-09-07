@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+import linkedin from "../assets/img/linkedin.png"
 const Footer= ()=> {
     return (
         <div className=" p-4 flex justify-around text-white  bg-black ">
@@ -28,10 +30,21 @@ const Footer= ()=> {
             </div>
             <div>
                 <h1 className="font-bold py-2">SOCIAL</h1>
-                <h2>Facebook</h2>
-                <h2>Twitter</h2>
-                <h2>Youtube</h2>
-                <h2>Instagram</h2>
+                <ul className="flex flex-col">
+          <li className="m-2">
+          <Link to={"https://www.linkedin.com/in/harshwardhan-kumar-4810441b9"}>
+            <img className="w-8 h-8" src={linkedin}/>
+            </Link>
+          </li>
+          <li className="m-2">
+            <Link to={"https://github.com/harshwardhan335"}>
+              <img
+                className="w-8 h-8 rounded-md"
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              />
+            </Link>
+          </li>
+        </ul>
 
             </div>
         </div>
