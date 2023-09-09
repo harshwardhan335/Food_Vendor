@@ -32,7 +32,7 @@ const Footer= ()=> {
                 <h1 className="font-bold py-2">SOCIAL</h1>
                 <ul className="flex flex-col">
           <li className="m-2">
-          <Link to={"https://www.linkedin.com/in/harshwardhan-kumar-4810441b9"}>
+          <Link to={"https://www.linkedin.com/in/harshwardhan335"}>
             <img className="w-8 h-8" src={linkedin}/>
             </Link>
           </li>
